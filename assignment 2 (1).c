@@ -451,15 +451,13 @@ int checkVoted(struct Voter voters[], int index){
     return 0; 
 }
 
-void updateVoteCount(struct Candidate candidates[], int index)
-{
+void updateVoteCount(struct Candidate candidates[], int index){
     candidates[index].voteCount++;
     totalVotesCast++;
 }
 
-int castVote(struct Candidate candidates[], int candidateCount, int candidateID)
-{
-    for (int i = 0; i < candidateCount; i++) {
+int castVote(struct Candidate candidates[], int candidateCount, int candidateID){
+    for (int i = 0; i<candidateCount; i++) {
         if (candidates[i].candidateID == candidateID) {
             updateVoteCount(candidates, i);
             return candidates[i].voteCount;
@@ -480,16 +478,14 @@ void displayVotingResults(struct Candidate candidates[], int count)
     printf("\n  ----------------------------------------\n");
     printf("          CURRENT VOTE TALLY\n");
     printf("  ----------------------------------------\n");
-    for (int i = 0; i < count; i++)
+    for (int i = 0; i< count; i++)
         printf("  %-26s : %d vote(s)\n", candidates[i].name, candidates[i].voteCount);
     printf("  ----------------------------------------\n");
     printf("  Total votes cast: %d\n", totalVotesCast);
     printf("  ----------------------------------------\n");
 }
 
-void votingMenu(struct Candidate candidates[], int candidateCount,
-                struct Voter voters[], int *voterCount)
-{
+void votingMenu(struct Candidate candidates[], int candidateCount,struct Voter voters[], int *voterCount){
     int  choice;
     char voterNIC[13];
     int  candidateID;
