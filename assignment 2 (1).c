@@ -434,8 +434,7 @@ void displayVoterMenu(struct Voter voters[], int *voterCount)
 
 // MODULE 4 - VOTING SYSTEM //
 
-int findVoterByNIC(struct Voter voters[], int voterCount, char *id)
-{
+int findVoterByNIC(struct Voter voters[], int voterCount, char *id){
     for (int i = 0; i < voterCount; i++) {
         if (strcmp(voters[i].id, id) == 0) {
             printf("  Voter found: %s (Voter ID: %d)\n", voters[i].name, voters[i].voterID);
@@ -445,9 +444,11 @@ int findVoterByNIC(struct Voter voters[], int voterCount, char *id)
     return -1;
 }
 
-int checkVoted(struct Voter voters[], int index)
-{
-    return (voters[index].hasVoted == 1) ? 1 : 0;
+int checkVoted(struct Voter voters[], int index){
+    if(voters[index].hasVoted==1){
+        return 1;
+    }
+    return 0; 
 }
 
 void updateVoteCount(struct Candidate candidates[], int index)
