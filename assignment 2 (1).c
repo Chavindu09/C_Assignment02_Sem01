@@ -39,7 +39,7 @@ struct NICRecord extractDetails (struct NICRecord person);
 struct NICRecord determineGender (struct NICRecord person);
 struct NICRecord calculateAge (struct NICRecord person);
 struct NICRecord checkEligibility (struct NICRecord person);
-void nicMenu (void);
+void nicMenu ();
 
 void initializeCandidates (struct Candidate candidates[], int *count);
 void displayAllCandidates (struct Candidate candidates[], int count);
@@ -56,11 +56,11 @@ int  findVoterByNIC (struct Voter voters[], int voterCount, char *id);
 int  checkVoted (struct Voter voters[], int index);
 int  castVote (struct Candidate candidates[], int candidateCount, int candidateID);
 void updateVoteCount (struct Candidate candidates[], int index);
-void printBallotHeader (void);
+void printBallotHeader ();
 void displayVotingResults (struct Candidate candidates[], int count);
 void votingMenu (struct Candidate candidates[], int candidateCount, struct Voter voters[],int *voterCount);
 
-void displayMainMenu (void);
+void displayMainMenu ();
 
 // MODULE 1 - NIC VALIDATION & ELIGIBILITY //
 
@@ -152,7 +152,7 @@ struct NICRecord checkEligibility(struct NICRecord person)
     return person;
 }
 
-void nicMenu(void)
+void nicMenu()
 {
     int choice;
     struct NICRecord person;
@@ -466,7 +466,7 @@ int castVote(struct Candidate candidates[], int candidateCount, int candidateID)
     return 0;
 }
 
-void printBallotHeader(void)
+void printBallotHeader()
 {
     printf("\n--------------------------------------------\n");
     printf("              VOTING BOOTH\n");
@@ -548,7 +548,7 @@ void votingMenu(struct Candidate candidates[], int candidateCount,struct Voter v
 
 // MAIN MENU & ENTRY POINT //
 
-void displayMainMenu(void)
+void displayMainMenu( )
 {
     printf("\n----------------------------------------------------\n");
     printf("|     SRI LANKA ELECTION MANAGEMENT SYSTEM        |\n");
@@ -562,7 +562,7 @@ void displayMainMenu(void)
     printf("Enter your choice: ");
 }
 
-int main(void)
+int main( )
 {
     struct Candidate candidates[MAX_CANDIDATES];
     int candidateCount = 0;
