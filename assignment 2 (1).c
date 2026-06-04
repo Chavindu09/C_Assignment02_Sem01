@@ -477,7 +477,7 @@ void updateVoteCount(struct Candidate candidates[], int index){
 
 int castVote(struct Candidate candidates[], int candidateCount, int candidateID){
     for (int i = 0; i<candidateCount; i++) {
-        if (candidates[i].candidateID == candidateID) {
+        if (candidates[i].candidateID ==candidateID) {
             updateVoteCount(candidates, i);
             return candidates[i].voteCount;
         }
