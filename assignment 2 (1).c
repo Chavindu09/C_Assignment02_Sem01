@@ -58,7 +58,6 @@ struct NICRecord extractDetails (struct NICRecord person);
 struct NICRecord determineGender (struct NICRecord person);
 struct NICRecord calculateAge (struct NICRecord person);
 struct NICRecord checkEligibility (struct NICRecord person);
-void nicMenu ();
 
 void initializeCandidates (struct Candidate candidates[], int *count);
 void displayAllCandidates (struct Candidate candidates[], int count);
@@ -75,11 +74,12 @@ int  findVoterByNIC (struct Voter voters[], int voterCount, char *id);
 int  checkVoted (struct Voter voters[], int index);
 int  castVote (struct Candidate candidates[], int candidateCount, int candidateID);
 void updateVoteCount (struct Candidate candidates[], int index);
-void printBallotHeader ();
 void displayVotingResults (struct Candidate candidates[], int count);
-void votingMenu (struct Candidate candidates[], int candidateCount, struct Voter voters[],int *voterCount);
 
+void votingMenu (struct Candidate candidates[], int candidateCount, struct Voter voters[],int *voterCount);
+void printBallotHeader ();
 void displayMainMenu ();
+void nicMenu ();
 
 // MODULE 1 - NIC VALIDATION & ELIGIBILITY //
 
@@ -597,15 +597,24 @@ int main( )
         scanf("%d", &choice);
 
         switch (choice) {
-            case 1: nicMenu(); break;
-            case 2: displayCandidateMenu(candidates, &candidateCount); break;
-            case 3: displayVoterMenu(voters, &voterCount); break;
-            case 4: votingMenu(candidates, candidateCount, voters, &voterCount); break;
+            case 1: 
+                nicMenu(); 
+                break;
+            case 2:
+                displayCandidateMenu(candidates, &candidateCount); 
+                break;
+            case 3: 
+                displayVoterMenu(voters, &voterCount); 
+                break;
+            case 4: 
+                votingMenu(candidates, candidateCount, voters, &voterCount); 
+                break;
             case 0:
                 printf("\nThank you for using the Election Management System. Goodbye!\n");
                 break;
             default:
                 printf("  Invalid choice. Please try again.\n");
+                break;
         }
     } while (choice != 0);
 
