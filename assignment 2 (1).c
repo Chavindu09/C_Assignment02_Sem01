@@ -32,6 +32,25 @@ struct Voter {
     int  hasVoted;
 };
 
+struct PollingStation {
+    int  stationID;
+    char stationName[50];
+    char district[30];
+    char address[100];
+    int  capacity;
+    int  registeredVoters;
+};
+
+struct ElectionResult {
+    int  resultID;
+    int  candidateID;
+    char candidateName[50];
+    char party[50];
+    int  totalVotes;
+    float votePercentage;
+    int  rank;
+};
+
 int totalVotesCast = 0;
 
 int validateNIC (struct NICRecord person);
